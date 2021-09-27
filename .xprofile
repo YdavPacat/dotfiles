@@ -1,16 +1,14 @@
 export PATH=$HOME/.local/bin:$PATH:
 # Scr
 
-feh --bg-scale ~/Img/Wallpapers/04.jpg &
-setxkbmap es &
+#feh --bg-scale ~/Img/Wallpapers/04.jpg &
+#setxkbmap es &
 xmodmap -e "keycode 135 = less greater less greater bar brokenbar"
-volumeicon&
-picom &
-cbatticon &
-redshift -l 39.47:-0.376 -t 5700:3600 -g 0.8 -m randr -v &
+#volumeicon&
+#picom &
+redshift -l 39.47:-0.376 -t 5700:2700 -g 0.8 -m randr -v &
 nm-applet &
 udiskie -t&
-pulse-autoconf&
 
 # KDE theme
 QT_QPA_PLATFORMTHEME=gtk2

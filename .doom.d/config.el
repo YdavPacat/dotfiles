@@ -168,3 +168,7 @@
 ;; Org bullets
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+;; Macros
+(fset 'del-return
+   (kmacro-lambda-form [?i backspace ?  escape ?j ?0] 0 "%d"))

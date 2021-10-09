@@ -100,7 +100,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "lxsession &"
-    spawnOnce "picom --config $HOME/.xmonad.old/scripts/picom.conf &"
+    spawnOnce "picom --config $HOME/.xmonad/scripts/picom.conf &"
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
     spawnOnce "conky -c $HOME/.config/conky/doomone-xmonad.conkyrc"
@@ -336,7 +336,7 @@ myManageHook = composeAll
      , className =? "toolbar"         --> doFloat
      , className =? "Yad"             --> doCenterFloat
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 1 )
+     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )
      , title =? "New Tab - Brave"     --> doShift ( myWorkspaces !! 0 )
      , title =? "*doom*"     --> doShift ( myWorkspaces !! 0 )
      , className =? "qutebrowser"     --> doShift ( myWorkspaces !! 1 )
@@ -378,7 +378,7 @@ myKeys =
 
     -- KB_GROUP Useful programs to have a keybinding for launch
         , ("M-<Return>", spawn (myTerminal))
-        , ("M-b", spawn (myBrowser ++ " www.youtube.com/c/DistroTube/"))
+     -- , ("M-b", spawn (myBrowser ++ " www.youtube.com/c/DistroTube/"))
         , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
 
     -- KB_GROUP Kill windows
@@ -501,7 +501,7 @@ myKeys =
    --  YdavPacat adds
         , ("M-x", spawn "arcolinux-logout")
         , ("M-S-b", spawn "brave")
-        , ("M-b", spawn "firefox")
+        , ("M-b", spawn "firefox --browser &")
         ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))

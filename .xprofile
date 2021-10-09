@@ -1,7 +1,8 @@
 export PATH=$HOME/.local/bin:$PATH:
+export WINIT_X11_SCALE_FACTOR=1
 # Scr
 
-#feh --bg-scale ~/Img/Wallpapers/04.jpg &
+~/.fehbg  &
 #setxkbmap es &
 xmodmap -e "keycode 135 = less greater less greater bar brokenbar"
 #volumeicon&

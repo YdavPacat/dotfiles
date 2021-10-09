@@ -195,8 +195,7 @@ alias skel='cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S) && cp -
 #backup contents of /etc/skel to hidden backup folder in home/user
 alias bupskel='cp -Rf /etc/skel ~/.skel-backup-$(date +%Y.%m.%d-%H.%M.%S)'
 
-#copy bashrc-latest over on bashrc - cb= copy bashrc
-#alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
+#copy bashrc-latest over on bashrc - cb= copy bashrc#alias cb='sudo cp /etc/skel/.bashrc ~/.bashrc && source ~/.bashrc'
 #copy /etc/skel/.zshrc over on ~/.zshrc - cb= copy zshrc
 alias cz='sudo cp /etc/skel/.zshrc ~/.zshrc && exec zsh'
 
@@ -312,7 +311,7 @@ alias xd="ls /usr/share/xsessions"
 
 
 alias brillo="xbacklight -set"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME' 
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>

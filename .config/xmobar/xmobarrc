@@ -64,21 +64,22 @@ Config { font            = "xft:mononoki Nerd Font:weight=bold:pixelsize=16:anti
                                         , "--high"     , "darkred"
                                         ] 50
 
-                   ,  Run Battery        [ "--template" , "  <acstatus>"
-                             , "--Low"      , "10"        -- units: %
-                             , "--High"     , "60"        -- units: %
-                             , "--low"      , "darkred"
-                             , "--normal"   , "darkorange"
-                             , "--high"     , "#00cf03"
+                --   ,  Run Battery        [ "--template" , "  <acstatus>"
+                --             , "--Low"      , "10"        -- units: %
+                --             , "--High"     , "60"        -- units: %
+                --             , "--low"      , "darkred"
+                --             , "--normal"   , "darkorange"
+                --             , "--high"     , "#00cf03"
 
-                             , "--" -- battery specific options
-                                       -- discharging status
-                                       , "-o"	, "<left>%"
-                                       -- AC "on" status
-                                       , "-O"	, "<fc=#00cf03>Charging</fc>(<left>%)"
-                                       -- charged status
-                                       , "-i"	, "<fc=#00cf03>Charged</fc>"
-                             ] 10
+                --             , "--" -- battery specific options
+                --                       -- discharging status
+                --                       , "-o"	, "<left>%"
+                --                       -- AC "on" status
+                --                       , "-O"	, "<fc=#00cf03>Charging</fc>(<left>%)"
+                --                       -- charged status
+                --                       , "-i"	, "<fc=#00cf03>Charged</fc>"
+                --             ] 10
+                    ,  Run Com ".bin/battery" [] "battery" 600
                     ]
        , sepChar = "%"
        , alignSep = "}{"

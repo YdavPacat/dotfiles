@@ -4,6 +4,7 @@ export WINIT_X11_SCALE_FACTOR=1
 
 ~/.fehbg  &
 #setxkbmap es &
+setxkbmap -layout us -variant intl &
 xmodmap -e "keycode 135 = less greater less greater bar brokenbar"
 #volumeicon&
 #picom &

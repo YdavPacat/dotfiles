@@ -100,7 +100,7 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 myStartupHook :: X ()
 myStartupHook = do
     spawnOnce "lxsession &"
-    spawnOnce "picom --config $HOME/.xmonad/scripts/picom.conf &"
+    spawnOnce "picom &"
     spawnOnce "nm-applet &"
     spawnOnce "volumeicon &"
     spawnOnce "conky -c $HOME/.config/conky/doomone-xmonad.conkyrc"
@@ -502,6 +502,7 @@ myKeys =
         , ("M-x", spawn "arcolinux-logout")
         , ("M-S-b", spawn "brave")
         , ("M-b", spawn "firefox --browser &")
+        , ("M-i", spawn "~/.bin/keyboard.sh")
         ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))

@@ -28,12 +28,12 @@ Config { font            = "xft:mononoki Nerd Font:weight=bold:pixelsize=16:anti
                         -- Get kernel version (script found in .local/bin)
                         -- ,  Run Com ".local/bin/kernel" [] "kernel" 36000
                         -- network activity monitor (dynamic interface resolution)
-                      Run DynNetwork     [ "--template" , "<tx>kB/s|<rx>kB/s"
+                      Run DynNetwork     [ "--template" , " <tx>kB/s  <rx>kB/s"
                                         , "--Low"      , "1000"       -- units: B/s
                                         , "--High"     , "5000"       -- units: B/s
-                                        , "--low"      , "blue"
-                                        , "--normal"   , "darkorange"
-                                        , "--high"     , "darkred"
+                                        , "--low"      , "lightblue"
+                                        , "--normal"   , "green"
+                                        , "--high"     , "red"
                                         ] 10
                         -- Cpu usage in percent
                     , Run Cpu ["-t", "<fn=2>\xf108</fn> cpu: <total>%","-H","50","--high","red"] 20
@@ -79,7 +79,8 @@ Config { font            = "xft:mononoki Nerd Font:weight=bold:pixelsize=16:anti
                 --                       -- charged status
                 --                       , "-i"	, "<fc=#00cf03>Charged</fc>"
                 --             ] 10
-                    ,  Run Com ".bin/battery" [] "battery" 600
+                    , Run Com ".bin/battery" [] "battery" 600
+                    , Run Com ".bin/brightness" [] "brightness" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
@@ -90,6 +91,7 @@ Config { font            = "xft:mononoki Nerd Font:weight=bold:pixelsize=16:anti
          \<box type=Bottom width=2 mb=2 color=#ff6c6b><fc=#ff6c6b><action=`alacritty -e htop`>%memory%</action></fc></box> \
          \<box type=Bottom width=2 mb=2 color=#bad600><fc=#bad600><action=` `>%coretemp%</action></fc></box> \
          \<box type=Bottom width=2 mb=2 color=#00cf03><fc=#00cf03><action=` `>%battery%</action></fc></box> \
+         \<box type=Bottom width=2 mb=2 color=#bad600><fc=#bad600><action=` `>%brightness%</action></fc></box> \
          \<box type=Bottom width=2 mb=2 color=#c678dd><fc=#c678dd>%bell% <action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box> \
          \<box type=Bottom width=2 mb=2 color=#46d9ff><fc=#46d9ff><action=`gnome-calendar`>%date%</action></fc></box>\
          \<box type=Bottom width=2 mb=2 color=#ffffff><fc=#ffffff>%trayerpad%</fc></box>"

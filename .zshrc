@@ -312,6 +312,7 @@ alias xd="ls /usr/share/xsessions"
 
 alias brillo="xbacklight -set"
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME' 
+alias etsinf='cd ~/git-repos/ETSINF3/'
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>

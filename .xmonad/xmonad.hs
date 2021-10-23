@@ -503,6 +503,9 @@ myKeys =
         , ("M-S-b", spawn "brave")
         , ("M-b", spawn "firefox --browser &")
         , ("M-i", spawn "~/.bin/keyboard.sh")
+   -- Brightness
+        , ("<XF86MonBrightnessUp>"  , spawn "xbacklight +10")
+        , ("<XF86MonBrightnessDown>", spawn "xbacklight -10")
         ]
     -- The following lines are needed for named scratchpads.
           where nonNSP          = WSIs (return (\ws -> W.tag ws /= "NSP"))
@@ -545,6 +548,6 @@ main = do
               , ppSep =  "<fc=#666666> <fn=1>|</fn> </fc>"                    -- Separator character
               , ppUrgent = xmobarColor "#C45500" "" . wrap "!" "!"            -- Urgent workspace
               , ppExtras  = [windowCount]                                     -- # of windows current workspace
-              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++ex++[t]                    -- order of things in xmobar
+              , ppOrder  = \(ws:l:t:ex) -> [ws,l]++[t]                    -- order of things in xmobar
               }
         } `additionalKeysP` myKeys

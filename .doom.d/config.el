@@ -172,3 +172,7 @@
 ;; Macros
 (fset 'del-return
    (kmacro-lambda-form [?i backspace ?  escape ?j ?0] 0 "%d"))
+
+(require 'package)
+(add-to-list 'package-archives
+'("melpa" . "http://melpa.milkbox.net/packages/") t)

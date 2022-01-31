@@ -11,6 +11,7 @@ xmodmap -e "keycode 135 = less greater less greater bar brokenbar"
 redshift -l 39.47:-0.376 -t 5700:2700 -g 0.8 -m randr -v &
 nm-applet &
 udiskie -t&
+dropbox &
 
 # KDE theme
 QT_QPA_PLATFORMTHEME=gtk2

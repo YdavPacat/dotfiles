@@ -334,16 +334,20 @@ myManageHook = composeAll
      , className =? "pinentry-gtk-2"  --> doFloat
      , className =? "splash"          --> doFloat
      , className =? "toolbar"         --> doFloat
+     , className =? "MetaMask"         --> doFloat
      , className =? "Yad"             --> doCenterFloat
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
+     , title =? "MetaMask*"  --> doFloat
      , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )
      , title =? "New Tab - Brave"     --> doShift ( myWorkspaces !! 0 )
+     , stringProperty "WM_WINDOW_ROLE" =? "pop-up" --> doFloat
      , title =? "*doom*"     --> doShift ( myWorkspaces !! 0 )
      , className =? "qutebrowser"     --> doShift ( myWorkspaces !! 1 )
      , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
      , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
      , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     , (className =? "brave" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
      , isFullscreen -->  doFullFloat
      ] <+> namedScratchpadManageHook myScratchPads
 

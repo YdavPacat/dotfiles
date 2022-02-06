@@ -366,3 +366,4 @@ ex ()
 export PATH=$HOME/.config/rofi/bin:$PATH
 
 eval "$(starship init zsh)"
+#neofetch

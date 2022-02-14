@@ -1,8 +1,0 @@
-
-xmonad.hs:523:20: error:
-    parse error on input ‘=’
-    Perhaps you need a 'let' in a 'do' block?
-    e.g. 'let x = 5' instead of 'x = 5'
-    |
-523 |     if screencount = 1
-    |                    ^

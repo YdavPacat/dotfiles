@@ -87,7 +87,7 @@ myEditor = "emacsclient -c -a 'emacs' "  -- Sets emacs as editor
 -- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor
 
 myBorderWidth :: Dimension
-myBorderWidth = 2           -- Sets border width for windows
+myBorderWidth = 4           -- Sets border width for windows
 
 myNormColor :: String
 myNormColor   = "#282c34"   -- Border color of normal windows
@@ -338,17 +338,13 @@ myManageHook = composeAll
      , className =? "MetaMask"         --> doFloat
      , className =? "Yad"             --> doCenterFloat
      , title =? "Oracle VM VirtualBox Manager"  --> doFloat
-     , title =? "MetaMask*"  --> doFloat
-     , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 0 )
-     , title =? "New Tab - Brave"     --> doShift ( myWorkspaces !! 0 )
      , stringProperty "WM_WINDOW_ROLE" =? "pop-up" --> doFloat
+     , stringProperty "WM_WINDOW_ROLE" =? "browser" --> doShift ( myWorkspaces !! 0 )
      , title =? "*doom*"     --> doShift ( myWorkspaces !! 0 )
-     , className =? "qutebrowser"     --> doShift ( myWorkspaces !! 1 )
      , className =? "mpv"             --> doShift ( myWorkspaces !! 7 )
      , className =? "Gimp"            --> doShift ( myWorkspaces !! 8 )
-     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
-     , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
-     , (className =? "brave" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
+     , className =? "discord"          --> doShift ( myWorkspaces !! 8 )
+     , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 7 )
      , isFullscreen -->  doFullFloat
      ] <+> namedScratchpadManageHook myScratchPads
 
@@ -520,13 +516,13 @@ myKeys =
 main :: IO ()
 main = do
     screencount <- LIS.countScreens
-    if screencount = 1
+    if screencount == 1
      then spawn "xrandr --output HDMI1 --off"
      else spawn "xrandr --output HDMI1 --auto --right-of eDP1"
     -- Launching three instances of xmobar on their monitors.
-    xmproc0 <- spawnPipe "xmobar -x 0 $HOME/.config/xmobar/xmobarrc"
+    xmproc0 <- spawnPipe "xmobar -x eDP1 $HOME/.config/xmobar/xmobarrc"
     xmproc1 <- spawnPipe "xmobar -x 1 $HOME/.config/xmobar/xmobarrc2"
-    xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/xmobarrc2"
+    xmproc2 <- spawnPipe "xmobar -x 2 $HOME/.config/xmobar/xmobarrc"
     -- the xmonad, ya know...what the WM is named after!
     xmonad $ ewmh def
         { manageHook         = myManageHook <+> manageDocks
